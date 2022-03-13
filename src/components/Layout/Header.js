@@ -45,14 +45,16 @@ function Header() {
     );
 
     const titleWhenNotAuthenticated = (
-        <Link className="navbar-brand text-light" to="/">
-            Personal Project Management Tool
-        </Link>
+        <div>
+            <Link className="navbar-brand text-light" to="/">
+                Organice
+            </Link>
+        </div>
     );
 
     const tileWhenAuthenticated = (
         <Link className="navbar-brand text-light" to="/dashboard">
-            Personal Project Management Tool
+            Organice
         </Link>
     )
     let headerBody;
