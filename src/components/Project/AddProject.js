@@ -39,12 +39,15 @@ function AddProject(){
                     .then((res) => {
                         if(res.data.responseCode === 200){
                             console.log("project updated");
-                            navigate('/dashboard')
+                            navigate('/dashboard');
+                            toast.info("Project Updated Successfully !");
                         } else {
+                            toast.error("Failed to update Project !");
                             console.log("project updation failed");
                         }
                     })
                     .catch((err) => {
+                        toast.error("Something went wrong ! Please login and try again");
                         console.log(err);
                     })
             } else {
@@ -52,13 +55,15 @@ function AddProject(){
                     .then((res) => {
                         if(res.data.responseCode === 200){
                             console.log("project created");
-                            navigate('/dashboard')
+                            navigate('/dashboard');
+                            toast.success("Project Created Successfully !");
                         } else {
+                            toast.error("Failed to create Project !");
                             console.log("project creation failed");
                         }
                     })
                     .catch((err) => {
-                        toast.error("Project Creation failed! Try again with different Project Id")
+                        toast.error("Something went wrong ! Please login and try again");
                         console.log(err);
                     })
             }
@@ -92,9 +97,10 @@ function AddProject(){
             <div className="container">
                 <div className="row">
                     <div className="col-md-8 m-auto">
+                        <br/>
                         {getProject ?
-                            <h5 className="display-4 text-center">Update Project form</h5>
-                            : <h5 className="display-4 text-center">Create Project form</h5>
+                            <h4 className="display-4 text-center">Update Project</h4>
+                            : <h4 className="display-4 text-center">Create Project</h4>
                         }
                         <hr/>
                         <Form onSubmit={handleForm}>
@@ -162,7 +168,7 @@ function AddProject(){
                                     }}
                                 />
                             </FormGroup>
-                            <Button type="submit" color="primary" >Submit</Button>
+                            <Button type="submit" color="primary" className="opacity-75">Submit</Button>
                         </Form>
                     </div>
                 </div>

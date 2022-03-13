@@ -5,6 +5,7 @@ import {createProjectTask, updateProjectTask} from "./service";
 import {getProjectByIdentifier} from "../Project/service";
 import {SUCCESS} from "../../constants/responseCode";
 import moment from "moment";
+import {toast} from "react-toastify";
 
 function AddProjectTask(){
     const[projectTask, setProjectTask] = useState({});
@@ -65,6 +66,7 @@ function AddProjectTask(){
                             navigate(`/projectBoard/${projectIdentifier}`, {
                                 state: {projectIdentifier},
                             });
+                            toast.info("Task updated Successfully !");
                         } else {
                             console.log("projectTask creation failed");
                         }
@@ -81,6 +83,7 @@ function AddProjectTask(){
                             navigate(`/projectBoard/${projectIdentifier}`, {
                                 state: {projectIdentifier},
                             });
+                            toast.success("Task created Successfully !")
                         } else {
                             console.log("projectTask creation failed");
                         }
@@ -108,15 +111,17 @@ function AddProjectTask(){
 
     const addProjectTaskBody = (
         <div className="add-PBI">
+            <br/>
+            <i
+                className="btn btn-primary opacity-75"
+                style={{marginLeft: "30px"}}
+                onClick={() => {
+                    backToProjectBoard(projectIdentifier)
+                }}
+            > Back to Project Board</i>
             <div className="container">
                 <div className="row">
                     <div className="col-md-8 m-auto">
-                        <i
-                            className="btn btn-light"
-                            onClick={() => {
-                                backToProjectBoard(projectIdentifier)
-                            }}
-                        > Back to Project Board</i>
                         {
                             getProjectTask ? (
                                     <h4 className="display-4 text-center">Edit Project Task</h4>
@@ -125,7 +130,7 @@ function AddProjectTask(){
                                     <h4 className="display-4 text-center">Add Project Task</h4>
                                 )
                         }
-                        <p className="lead text-center">Project Name + Project Code</p>
+                        <h4 className="text-center text-primary">Project Code : {projectIdentifier}</h4>
                         <Form onSubmit={handleForm}>
                             <FormGroup className="text-lg-start">
                                 <Input
@@ -198,7 +203,7 @@ function AddProjectTask(){
                             </FormGroup>
                             <Button
                                 type="submit"
-                                className="btn btn-primary btn-block mt-4"
+                                className="btn btn-primary opacity-75"
                                 color="primary"
                             >Submit</Button>
                         </Form>

@@ -31,22 +31,18 @@ function Backlog({projectTasks}){
             <div className="row">
                 <div className="col-md-4">
                     <div className="card text-center mb-2">
-                        <div className="card-header bg-secondary text-white">
-                            <h3>TO DO</h3>
+                        <div className="card-header bg-secondary opacity-50 text-white">
+                            <h4>To Do</h4>
                         </div>
                     </div>
-                    {/*{*/}
-                    {/*    projectTasksBacklog.map((item) =>*/}
-                    {/*        <ProjectTask key={item.id} projectTask={item}/>*/}
-                    {/*    )*/}
                     {
                         todoItems
                     }
                 </div>
                 <div className="col-md-4">
                     <div className="card text-center mb-2">
-                        <div className="card-header bg-primary text-white">
-                            <h3>In Progress</h3>
+                        <div className="card-header bg-primary opacity-75 text-white">
+                            <h4>In Progress</h4>
                         </div>
                     </div>
                     {
@@ -55,8 +51,8 @@ function Backlog({projectTasks}){
                 </div>
                 <div className="col-md-4">
                     <div className="card text-center mb-2">
-                        <div className="card-header bg-success text-white">
-                            <h3>Done</h3>
+                        <div className="card-header bg-success opacity-75 text-white">
+                            <h4>Done</h4>
                         </div>
                     </div>
                     {

@@ -38,12 +38,28 @@
 /*}*/
 
 img {
-  width: 100%;
+  width: 60%;
+  height: 60%;
+}
+
+.card-button {
+  text-align: right;
 }
 
 .navbar {
   background-color: #e3f2fd;
+  /*display: flex;*/
+  /*justify-content: space-between;*/
 }
+
+/*.link {*/
+/*  padding: 10px;*/
+/*}*/
+.landing-page{
+  /*color: rgb(135,119,217,1);*/
+  color: rgb(180, 71, 43);
+}
+
 .fa.fa-edit {
   color: #18a2b9;
   /*color: darkgoldenrod;*/

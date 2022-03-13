@@ -3,6 +3,10 @@ import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import setJwtToken from "../../securityUtils/setJwtToken";
 import {logout} from "../../actions/securityActions";
+import Typography from "@mui/material/Typography";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Box from "@mui/material/Box";
 
 function Header() {
     let state = useSelector(state => state.security);
@@ -16,58 +20,38 @@ function Header() {
     }
 
     const userIsAuthenticated = (
-        <div className="collapse navbar-collapse" id="mobile-nav">
-            <ul className="navbar-nav mr-auto">
-                <li className="nav-item">
-                    <Link className="nav-link" to="/dashboard">
-                        Dashboard
-                    </Link>
-                </li>
-            </ul>
-            <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                    <Link className="nav-link" to="/dashboard">
-                        {state.user.fullname}
-                    </Link>
-                </li>
-                <li className="nav-item">
-                    <Link
-                        className="nav-link"
-                        to="/logout"
-                        onClick={logoutUser}
-                    >
-                        Logout
-                    </Link>
-                </li>
-            </ul>
+        <div>
+            <Link className="navbar-brand text-light" to="/dashboard">
+                Dashboard
+            </Link>
+            <Link className="navbar-brand text-light" to="/dashboard">
+                {state.user.fullname}
+            </Link>
+            <Link className="navbar-brand text-light" to="/logout" onClick={logoutUser}>
+                Logout
+            </Link>
         </div>
     );
 
     const userIsNotAuthenticated = (
-        <div className="collapse navbar-collapse" id="mobile-nav">
-            <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                    <Link className="nav-link" to="/register">
-                        Sign Up
-                    </Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/login">
-                        Login
-                    </Link>
-                </li>
-            </ul>
+        <div>
+            <Link className="navbar-brand text-light" to="/register">
+                Sign Up
+            </Link>
+            <Link className="navbar-brand text-light" to="/login">
+                Login
+            </Link>
         </div>
     );
 
     const titleWhenNotAuthenticated = (
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand text-light" to="/">
             Personal Project Management Tool
         </Link>
     );
 
     const tileWhenAuthenticated = (
-        <Link className="navbar-brand" to="/dashboard">
+        <Link className="navbar-brand text-light" to="/dashboard">
             Personal Project Management Tool
         </Link>
     )
@@ -84,43 +68,17 @@ function Header() {
     }
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
-            <div className="container">
+        <Box sx={{flexGrow: 1}}>
+            <AppBar position="static">
+                <Toolbar className="landing-page">
+                <Typography component="div" sx={{ flexGrow: 1 }} color="inherit">
                 {headerTitle}
-                {/*<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">*/}
-                {/*    <span className="navbar-toggler-icon"/>*/}
-                {/*</button>*/}
-
-                {headerBody}
-
-
-            </div>
-        </nav>
-
+                </Typography>
+                    {headerBody}
+                </Toolbar>
+            </AppBar>
+        </Box>
     );
 }
 
 export default Header;
-
-
-// <div className="collapse navbar-collapse" id="mobile-nav">
-//     <ul className="navbar-nav mr-auto">
-//         <li className="nav-item">
-//             <Link className="nav-link" to="/dashboard">
-//                 Dashboard
-//             </Link>
-//         </li>
-//     </ul>
-//     <ul className="navbar-nav ml-auto">
-//         <li className="nav-item">
-//             <Link className="nav-link" to="/register">
-//                 Sign Up
-//             </Link>
-//         </li>
-//         <li className="nav-item">
-//             <Link className="nav-link" to="/login">
-//                 Login
-//             </Link>
-//         </li>
-//     </ul>
-// </div>

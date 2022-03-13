@@ -37,6 +37,7 @@ function Login(){
                     dispatch(login(decoded));
 
                     navigate("/dashboard");
+                    toast.success("Logged In !");
                 })
                 .catch((err) => {
                     toast.error("Invalid Credentials , Please try again!");
@@ -67,9 +68,10 @@ function Login(){
         <div className="login">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-8 m-auto">
-                        <h1 className="display-4 text-center">Log In</h1>
-                        <Form onSubmit={handleForm}>
+                    <div className="col-md-5 m-auto">
+                        <br/>
+                        <h1 className="display-4 text-center mb-3">Log In</h1>
+                        <Form onSubmit={handleForm} style={{textAlign: "center"}}>
                             <FormGroup className="text-lg-start">
                                 <Input
                                     type="email"
@@ -98,7 +100,7 @@ function Login(){
                             </FormGroup>
                             <Button
                                 type="submit"
-                                className="btn btn-info btn-block mt-4"
+                                className="btn bg-primary opacity-75 btn-block mt-4"
                             >Submit</Button>
                         </Form>
                     </div>

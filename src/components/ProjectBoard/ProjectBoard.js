@@ -62,16 +62,17 @@ function ProjectBoard(){
         });
     }
 
-    return(
+    return (
         <div className="container">
+            <br/>
             <i
-                className="btn btn-primary mb-3 fas fa-plus-circle"
+                className="btn bg-primary bg-opacity-75 mb-3 fas fa-plus-circle text-white"
                 onClick={() => {
                     createProjectTask(projectKey)
                 }}
             > Create Project Task</i>
-            <br />
-            <hr />
+            <br/>
+            <hr/>
             {
                 isExists ?
                     (

@@ -16,6 +16,7 @@ function Register(){
             createNewUser(user)
                 .then((res) => {
                     console.log("user registered");
+                    toast.success("Registered Successfully... Please Login !");
                     navigate('/login');
                 })
                 .catch((err) => {
@@ -52,10 +53,10 @@ function Register(){
         <div className="register">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-8 m-auto">
-                        <h1 className="display-4 text-center">Sign Up</h1>
-                        <p className="lead text-center">Create your Account</p>
-                        <Form onSubmit={handleForm}>
+                    <div className="col-md-6 m-auto">
+                        <br/>
+                        <h1 className="display-4 text-center mb-3">Sign Up</h1>
+                        <Form onSubmit={handleForm} style={{textAlign: "center"}}>
                             <FormGroup className="text-lg-start">
                                 <Input
                                     type="text"
@@ -110,7 +111,7 @@ function Register(){
                             </FormGroup>
                             <Button
                                 type="submit"
-                                className="btn btn-info btn-block mt-4"
+                                className="btn bg-primary opacity-75 btn-block mt-4"
                             >Submit</Button>
                         </Form>
                     </div>

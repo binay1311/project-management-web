@@ -2,7 +2,6 @@ import axios from "axios";
 import base_url from "../../constants/bootapi";
 
 export function createProjectTask(projectTask, projectIdentifier){
-    console.log("inside createProjectTask");
     return axios.post(`${base_url}/api/backlog/${projectIdentifier}`, projectTask);
 }
 

@@ -12,7 +12,6 @@ function AllProjects(){
             (response) => {
                 if (response.data.responseCode === SUCCESS) {
                     setProjects(response.data.response);
-                    // toast.success("All courses has been loaded");
                     console.log("loading all projects");
                 } else {
                     toast.error("Could not load projects, PLease refresh the page or login and try again!");
