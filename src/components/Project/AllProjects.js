@@ -3,6 +3,7 @@ import {getAllProjects} from "./service";
 import {SUCCESS} from "../../constants/responseCode";
 import Project from "./Project";
 import {toast} from "react-toastify";
+import {Card, CardBody, CardTitle} from "reactstrap";
 
 function AllProjects(){
     const [projects, setProjects] =useState([]);
@@ -28,6 +29,16 @@ function AllProjects(){
         setProjects(projects.filter((project) => project.projectIdentifier !== projectIdentifier));
     }
 
+    const projectDoesNotExist = (
+        <Card className="alert alert-info text-center">
+            <CardBody>
+                <CardTitle>
+                    <h3>No Projects on this Board</h3>
+                </CardTitle>
+            </CardBody>
+        </Card>
+    );
+
     useEffect(() => {
         getAllProjectsFromServer();
     }, [])
@@ -37,7 +48,7 @@ function AllProjects(){
             {
                 projects.length > 0 ?
                     projects.map((item) => <Project key={item.id} project={item} update={updateProject}/> )
-                    : "NO Projects"
+                    : projectDoesNotExist
             }
         </div>
     )
